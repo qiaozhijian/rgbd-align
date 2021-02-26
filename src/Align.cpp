@@ -8,7 +8,7 @@
 #include<chrono>
 
 using namespace std;
-Align::Align(ros::NodeHandle nh):nh(nh)
+Align::Align(ros::NodeHandle& nh):nh(nh)
 {
     // ORB: /camera/rgb/image_raw  /camera/depth_registered/image_raw
     rgb_sub_ptr = std::make_shared<message_filters::Subscriber<sensor_msgs::Image>>(nh, "/camera/rgb/image_rect_color", 100);

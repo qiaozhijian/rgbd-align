@@ -17,7 +17,7 @@ typedef message_filters::sync_policies::ApproximateTime <sensor_msgs::Image, sen
 class Align {
 
     public:
-    Align(ros::NodeHandle nh);
+    Align(ros::NodeHandle &nh);
 
     void GrabRGBD(const sensor_msgs::ImageConstPtr &msgRGB, const sensor_msgs::ImageConstPtr &msgD);
 
