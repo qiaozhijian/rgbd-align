@@ -13,7 +13,7 @@
 #include<cv_bridge/cv_bridge.h>
 #include<sensor_msgs/Imu.h>
 #include<opencv2/core/core.hpp>
-#include "LoopDetector.h"
+#include "ImageSave.h"
 
 
 int main(int argc, char **argv) {
@@ -22,12 +22,15 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "rgbd_node");
     ros::NodeHandle n("~");
 
-    LoopDetector detector(n);
+    ImageSave saver("/camera/image_raw");
     ROS_INFO("rgbd_node start.");
 
     ros::Rate rate(200);
     while (ros::ok()) {
-        detector.Run();
+        ros::spinOnce();
+
+        saver.Run();
+
         rate.sleep();
     }
 }
