@@ -22,13 +22,13 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "rgbd_node");
     ros::NodeHandle n("~");
 
-
+    Align align(n);
     ROS_INFO("rgbd_node start.");
 
     ros::Rate rate(200);
     while(ros::ok())
     {
-        ros::spinOnce();
+        align.Run();
         rate.sleep();
     }
 }

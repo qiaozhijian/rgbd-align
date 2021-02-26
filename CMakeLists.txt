@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
         roscpp
         cv_bridge
         message_filters
+        image_transport
         tf
         )
 
