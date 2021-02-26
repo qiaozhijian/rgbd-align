@@ -25,7 +25,7 @@ class Align {
 
     private:
 
-    ros::NodeHandle nh;
+    ros::NodeHandle _nh;
 //    message_filters::Subscriber<sensor_msgs::Image> rgb_sub;
     std::shared_ptr<message_filters::Subscriber<sensor_msgs::Image>> rgb_sub_ptr;
     std::shared_ptr<message_filters::Subscriber<sensor_msgs::Image>> depth_sub_ptr;

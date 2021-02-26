@@ -8,11 +8,11 @@
 #include<chrono>
 
 using namespace std;
-Align::Align(ros::NodeHandle& nh):nh(nh)
+Align::Align(ros::NodeHandle& nh):_nh(nh)
 {
     // ORB: /camera/rgb/image_raw  /camera/depth_registered/image_raw
-    rgb_sub_ptr = std::make_shared<message_filters::Subscriber<sensor_msgs::Image>>(nh, "/camera/rgb/image_rect_color", 100);
-    depth_sub_ptr = std::make_shared<message_filters::Subscriber<sensor_msgs::Image>>(nh, "/camera/depth/image_rect", 100);
+    rgb_sub_ptr = std::make_shared<message_filters::Subscriber<sensor_msgs::Image>>(_nh, "/camera/rgb/image_rect_color", 100);
+    depth_sub_ptr = std::make_shared<message_filters::Subscriber<sensor_msgs::Image>>(_nh, "/camera/depth/image_rect", 100);
     sync_ptr = std::make_shared<message_filters::Synchronizer <sync_pol>>(sync_pol(10), *rgb_sub_ptr, *depth_sub_ptr);
     sync_ptr->registerCallback(boost::bind(&Align::GrabRGBD, this, _1, _2));
 
