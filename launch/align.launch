@@ -3,5 +3,5 @@
     <!--启动ORB-SLAM3 stereo respawn="true" 如果该节点启动不成功会再次尝试启动-->
     <node name ="rgbd_node" pkg="rgbd_align" type="rgbd_node" output="screen" />
 
-<!--    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find rgbd_align)/launch/default.rviz" />-->
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find rgbd_align)/launch/default.rviz" />
 </launch>
